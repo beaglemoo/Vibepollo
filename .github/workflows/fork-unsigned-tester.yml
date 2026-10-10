@@ -3,7 +3,9 @@ name: Fork Unsigned Tester
 permissions: {}
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - ci/unsigned-tester
 
 jobs:
   build-windows:
