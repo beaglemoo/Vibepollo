@@ -1,0 +1,23 @@
+---
+name: Fork Unsigned Tester
+permissions: {}
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-windows:
+    permissions:
+      contents: read
+      actions: read
+    uses: ./.github/workflows/ci-windows.yml
+    with:
+      release_commit: ${{ github.sha }}
+      release_version: '2.0.0'
+      release_tag: ''
+      symbol_product_name: Vibepollo
+      symbol_release_prefix: polo
+      publish_symbols: false
+      upload_symbols_artifact: false
+      require_signpath_signing: false
+      require_truehdr_runtime: false
